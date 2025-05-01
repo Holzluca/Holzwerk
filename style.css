@@ -1,104 +1,158 @@
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
+{
   margin: 0;
   padding: 0;
-  background-color: #f8f8f8;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
   color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 header {
-  background-color: #ffffff;
+  background-color: #2d3b45;
+  color: white;
   padding: 20px;
-  border-bottom: 1px solid #ddd;
   text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
-  margin: 0;
   font-size: 2.5em;
-  color: #222;
+  margin-bottom: 10px;
+  font-weight: 700;
 }
 
 nav {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
+  color: white;
+  margin: 0 20px;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 nav a:hover {
-  color: #6b4c2c;
+  color: #ff7b54;
+}
+
+footer {
+  background-color: #2d3b45;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 40px;
 }
 
 main {
-  max-width: 1000px;
-  margin: 30px auto;
+  max-width: 1200px;
+  margin: 40px auto;
   padding: 0 20px;
 }
 
+/* Abschnitt-Design */
 section {
   margin-bottom: 60px;
 }
 
 section h2 {
-  font-size: 1.8em;
-  margin-bottom: 10px;
-  border-bottom: 2px solid #ccc;
-  padding-bottom: 5px;
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  border-bottom: 3px solid #ff7b54;
+  padding-bottom: 10px;
 }
 
 .tisch {
-  background: white;
-  padding: 20px;
+  background-color: #fff;
   margin-bottom: 30px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.tisch:hover {
+  transform: translateY(-10px);
 }
 
 .tisch img {
   width: 100%;
-  height: 250px;
+  height: auto;
   object-fit: cover;
-  display: block;
-  margin: 0 auto 15px;
-  border-radius: 6px;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.tisch img:hover {
+  transform: scale(1.05);
 }
 
 .tisch h3 {
-  margin-top: 10px;
+  margin-top: 15px;
   font-size: 1.4em;
+  color: #444;
+  font-weight: 600;
 }
 
 .tisch a {
   display: inline-block;
-  margin-top: 10px;
-  padding: 10px 18px;
-  background-color: #6b4c2c;
+  margin-top: 20px;
+  padding: 12px 20px;
+  background-color: #ff7b54;
   color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
+  font-weight: 700;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .tisch a:hover {
-  background-color: #8a623a;
+  background-color: #e65f3d;
 }
 
-#kontakt p, #kontakt a {
+#kontakt a {
   font-size: 1.1em;
+  color: #ff7b54;
 }
 
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #eee;
-  color: #666;
-  font-size: 0.9em;
-  border-top: 1px solid #ddd;
+#kontakt a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav a {
+    font-size: 1em;
+    margin: 0 10px;
+  }
+
+  .tisch {
+    margin-bottom: 20px;
+  }
+
+  .tisch img {
+    height: 250px;
+  }
+
+  main {
+    padding: 0 10px;
+  }
 }
