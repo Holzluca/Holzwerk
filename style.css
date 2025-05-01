@@ -33,7 +33,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #6b4c2c; /* Holzfarbener Ton */
+  color: #6b4c2c;
 }
 
 /* Hauptbereich */
@@ -43,7 +43,7 @@ main {
   padding: 0 20px;
 }
 
-/* Einzelne Bereiche */
+/* Abschnittsüberschriften */
 section {
   margin-bottom: 60px;
 }
@@ -55,7 +55,7 @@ section h2 {
   padding-bottom: 5px;
 }
 
-/* Tisch-Karten */
+/* Tischkarten */
 .tisch {
   background: white;
   padding: 20px;
@@ -66,12 +66,13 @@ section h2 {
 }
 
 .tisch img {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 350px;
   display: block;
   margin: 0 auto 15px;
   border-radius: 6px;
+  object-fit: cover;
 }
 
 .tisch h3 {
