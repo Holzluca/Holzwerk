@@ -9,8 +9,6 @@ body {
   line-height: 1.6;
   background-color: #f9f9f9;
   color: #333;
-  margin: 0;
-  padding: 0;
 }
 
 a {
@@ -18,6 +16,9 @@ a {
   color: inherit;
 }
 
+/* ================================
+   Header & Navigation
+   ================================ */
 header {
   background-color: #2d3b45;
   color: white;
@@ -43,28 +44,25 @@ nav a {
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 1px;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
   color: #ff7b54;
 }
 
-footer {
-  background-color: #2d3b45;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
-  font-size: 0.9em;
-  margin-top: 40px;
-}
-
+/* ================================
+   Main Container
+   ================================ */
 main {
   max-width: 1200px;
   margin: 40px auto;
   padding: 0 20px;
 }
 
-/* Abschnitt-Design */
+/* ================================
+   Abschnittsüberschriften
+   ================================ */
 section {
   margin-bottom: 60px;
 }
@@ -78,6 +76,9 @@ section h2 {
   padding-bottom: 10px;
 }
 
+/* ================================
+   Tisch-Karten
+   ================================ */
 .tisch {
   background-color: #fff;
   margin-bottom: 30px;
@@ -94,7 +95,7 @@ section h2 {
 
 .tisch img {
   width: 100%;
-  height: auto;
+  height: 250px;
   object-fit: cover;
   border-radius: 8px;
   transition: transform 0.3s ease-in-out;
@@ -128,8 +129,75 @@ section h2 {
   background-color: #e65f3d;
 }
 
-#kontakt a {
+/* ================================
+   FAQ-Bereich
+   ================================ */
+#faq {
+  margin: 40px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+#faq h2 {
+  font-size: 2.5em;
+  text-align: center;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.faq-item {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.faq-item h3 {
+  font-size: 1.6em;
+  color: #444;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.faq-item p {
   font-size: 1.1em;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.faq-item a {
+  color: #ff7b54;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.faq-item a:hover {
+  text-decoration: underline;
+}
+
+/* ================================
+   Kontaktbereich
+   ================================ */
+#kontakt {
+  margin-bottom: 60px;
+}
+
+#kontakt h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  border-bottom: 3px solid #ff7b54;
+  padding-bottom: 10px;
+}
+
+#kontakt p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+#kontakt a {
   color: #ff7b54;
 }
 
@@ -137,7 +205,21 @@ section h2 {
   text-decoration: underline;
 }
 
-/* Responsive Design */
+/* ================================
+   Footer
+   ================================ */
+footer {
+  background-color: #2d3b45;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 40px;
+}
+
+/* ================================
+   Responsive Design
+   ================================ */
 @media (max-width: 768px) {
   nav a {
     font-size: 1em;
@@ -149,10 +231,18 @@ section h2 {
   }
 
   .tisch img {
-    height: 250px;
+    height: 200px;
   }
 
-  main {
-    padding: 0 10px;
+  #faq h2 {
+    font-size: 2em;
+  }
+
+  .faq-item h3 {
+    font-size: 1.3em;
+  }
+
+  .faq-item p {
+    font-size: 1em;
   }
 }
