@@ -21,20 +21,29 @@
     </nav>
   </header>
 
-  <section class="produkte">
-    <h1>Unsere Tische</h1>
-    <div class="tisch-grid">
-      <!-- jetzt 10 Einträge, du ersetzt src/Beschreibung nach Bedarf -->
-      ${[...Array(10)].map((_,i)=>`
-      <div class="tisch">
-        <img src="images/tisch${i+1}.jpg" alt="Monolith-Tisch ${i+1}" />
-        <h3>Monolith-Tisch ${i+1}</h3>
-        <p>Beschreibung Unikat ${i+1}.</p>
+<section class="produkte">
+  <h1>Unsere Tische</h1>
+  <div class="tisch-grid">
+    <div class="tisch">
+      <img src="images/tisch1.jpg" alt="Tisch 1"/>
+      <div class="tisch-content">
+        <h3>Monolith-Tisch 1</h3>
+        <p>Edles Unikat.</p>
         <a href="mailto:info@holzwerk.de">Anfrage senden</a>
-      </div>`).join('')}
+      </div>
     </div>
-  </section>
-
+    <!-- wiederhole das 10 Mal, ändere Bilder und Texte -->
+    <!-- ... -->
+    <div class="tisch">
+      <img src="images/tisch10.jpg" alt="Tisch 10"/>
+      <div class="tisch-content">
+        <h3>Monolith-Tisch 10</h3>
+        <p>Exklusives Design.</p>
+        <a href="mailto:info@holzwerk.de">Anfrage senden</a>
+      </div>
+    </div>
+  </div>
+</section>
   <footer>
     <div class="footer-content">
       <div>
