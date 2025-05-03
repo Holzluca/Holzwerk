@@ -176,3 +176,70 @@ footer a:hover {
     height: 200px;
   }
 }
+
+.produkte.startseite {
+  padding-top: 60px;
+}
+
+.haupt-tisch {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.haupt-tisch img {
+  flex: 1 1 400px;
+  max-width: 500px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.haupt-tisch-info {
+  flex: 1 1 300px;
+}
+
+.haupt-tisch-info h3 {
+  font-size: 2rem;
+  color: #275317;
+  margin-bottom: 15px;
+}
+
+.haupt-tisch-info p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.button-link {
+  background: #275317;
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.button-link:hover {
+  background: #1e3d12;
+}
+
+.tisch-grid.klein {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.tisch-grid.klein .tisch {
+  width: 220px;
+}
+
+.tisch-grid.klein .tisch img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
