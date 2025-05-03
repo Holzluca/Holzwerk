@@ -11,7 +11,7 @@ body {
   line-height: 1.6;
 }
 
-/* Header */
+/* HEADER */
 header {
   display: flex;
   align-items: center;
@@ -29,7 +29,7 @@ header {
   width: auto;
 }
 
-/* Navigation */
+/* NAVIGATION */
 nav ul {
   list-style: none;
   display: flex;
@@ -47,7 +47,7 @@ nav a:hover {
   color: #1e3d12;
 }
 
-/* Hero */
+/* HERO */
 .hero {
   text-align: center;
   padding: 80px 20px 40px;
@@ -65,7 +65,7 @@ nav a:hover {
   color: #555;
 }
 
-/* Produkte */
+/* PRODUKTE (Haupt-Tisch + Weitere Tische) */
 .produkte {
   max-width: 1200px;
   margin: 0 auto;
@@ -130,53 +130,7 @@ nav a:hover {
   background: #1e3d12;
 }
 
-/* Footer */
-footer {
-  background: #275317;
-  color: #fff;
-  padding: 40px 60px;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-footer h4 {
-  margin-bottom: 10px;
-}
-
-footer a {
-  color: #e6e6e6;
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    padding: 20px;
-  }
-  nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
-  }
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-  .tisch img {
-    height: 200px;
-  }
-}
-
+/* STARTSEITEN-SPEZIFISCHE STYLES */
 .produkte.startseite {
   padding-top: 60px;
 }
@@ -242,4 +196,61 @@ footer a:hover {
   object-fit: cover;
   border-radius: 4px;
   margin-bottom: 10px;
+}
+
+/* FOOTER */
+footer {
+  background: #275317;
+  color: #fff;
+  padding: 40px 60px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+footer h4 {
+  margin-bottom: 10px;
+}
+
+footer a {
+  color: #e6e6e6;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 20px;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .tisch img {
+    height: 200px;
+  }
+  .haupt-tisch {
+    flex-direction: column;
+  }
+  .haupt-tisch-info {
+    text-align: center;
+  }
+  .button-link {
+    width: 100%;
+    text-align: center;
+  }
 }
