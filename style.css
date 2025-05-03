@@ -24,10 +24,10 @@ header {
   z-index: 1000;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-}
+.logo img {
+  height: 80px; /* vorher 48px */
+  width: auto;
+
 
 .logo img {
   height: 48px;
