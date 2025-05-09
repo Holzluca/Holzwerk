@@ -313,3 +313,42 @@ footer a:hover {
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
+nav .dropdown {
+  position: relative;
+}
+
+nav .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 10px 0;
+  min-width: 180px;
+  z-index: 999;
+}
+
+nav .dropdown-menu li {
+  padding: 0;
+}
+
+nav .dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: #275317;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+nav .dropdown-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Anzeigen beim Hovern */
+nav .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
