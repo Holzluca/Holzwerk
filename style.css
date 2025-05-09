@@ -254,3 +254,18 @@ footer a:hover {
     text-align: center;
   }
 }
+
+.content .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  line-height: 1.8;
+  color: #333;
+}
+.content h1, .content h2 {
+  color: #275317;
+  margin-bottom: 20px;
+}
+.content p {
+  margin-bottom: 15px;
+}
