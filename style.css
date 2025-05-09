@@ -269,3 +269,47 @@ footer a:hover {
 .content p {
   margin-bottom: 15px;
 }
+
+.kontakt .container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+.kontakt h1, .kontakt h2 {
+  color: #275317;
+  margin-bottom: 20px;
+}
+
+.kontakt p {
+  margin-bottom: 15px;
+}
+
+.kontakt form input,
+.kontakt form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.kontakt button {
+  background: #275317;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.kontakt button:hover {
+  background: #1e3d12;
+}
+
+.map-container {
+  margin: 30px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
