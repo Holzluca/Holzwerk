@@ -360,3 +360,45 @@ nav .dropdown:hover .dropdown-menu {
   color: #444;
   line-height: 1.7;
 }
+
+.bildergalerie {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider {
+  position: relative;
+}
+
+.slider img {
+  display: none;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.slider img.active {
+  display: block;
+}
+
+.slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(39, 83, 23, 0.8);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 8px 12px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.slider .prev {
+  left: 10px;
+}
+
+.slider .next {
+  right: 10px;
+}
