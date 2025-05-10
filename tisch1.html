@@ -4,6 +4,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Monolith-Tisch 1 – Details</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #fff;
+    }
+
+    main {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 40px;
+      gap: 40px;
+    }
+
+    .image-area {
+      flex: 1;
+    }
+
+    .image-area img {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .details-area {
+      flex: 1;
+      max-width: 500px;
+    }
+
+    .details-area h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-weight: bold;
+      font-size: 22px;
+      margin: 10px 0;
+    }
+
+    .product-code {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .anfrage-button {
+      display: inline-block;
+      background-color: #222;
+      color: white;
+      padding: 10px 25px;
+      text-decoration: none;
+      margin: 20px 0;
+      transition: 0.2s ease;
+    }
+
+    .anfrage-button:hover {
+      background-color: #444;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+      padding: 10px 0;
+      border-top: 1px solid #ccc;
+    }
+
+    details {
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background: #111;
+      color: #eee;
+      padding: 30px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    nav {
+      background-color: #222;
+      color: #fff;
+      padding: 10px 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #111;
+      padding: 10px 20px;
+    }
+  </style>
 </head>
 <body>
 
@@ -15,91 +125,49 @@
     <ul>
       <li><a href="index.html">Start</a></li>
       <li><a href="tische.html">Tische</a></li>
-      <li class="dropdown">
-        <a href="#">Unternehmen</a>
-        <ul class="dropdown-menu">
-          <li><a href="ueber-uns.html">Über uns</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-          <li><a href="impressum.html">Impressum</a></li>
-          <li><a href="agb.html">AGB</a></li>
-        </ul>
-      </li>
+      <li><a href="#">Unternehmen</a></li>
     </ul>
   </nav>
 </header>
 
-<main class="tisch-detail">
-  <h1>Monolith-Tisch 1</h1>
-  <div class="detail-container">
-    
-    <!-- Bildergalerie mit 3 durchklickbaren Bildern -->
-    <div class="bildergalerie">
-      <div class="slider">
-        <button class="prev">&#10094;</button>
-        <div class="slides">
-          <img src="images/tisch1_detail1.jpg" alt="Test Hauptansicht" class="active">
-          <img src="images/tisch1_detail1.jpg" alt="Tisch 1 – Detailansicht 1">
-          <img src="images/tisch1_detail2.jpg" alt="Tisch 1 – Detailansicht 2">
-        </div>
-        <button class="next">&#10095;</button>
-      </div>
-    </div>
+<main>
+  <div class="image-area">
+    <img src="images/tisch1.jpg" alt="Monolith-Tisch 1 – Hauptansicht">
+  </div>
 
-    <div class="details">
-      <h3>Technische Angaben</h3>
+  <div class="details-area">
+    <h1>Monolith-Tisch 1</h1>
+    <p class="price">3.495,00 EUR</p>
+    <p class="product-code">Artikelnummer: 001-SUAR-240</p>
+    <a class="anfrage-button" href="mailto:info@holzwerk.de?subject=Anfrage%20zu%20Monolith-Tisch%201">Anfrage senden</a>
+
+    <details>
+      <summary>Technische Details</summary>
       <ul>
         <li>Material: Suarholz, geölt</li>
-        <li>Maße: 240 x 100 x 76 cm (L x B x H)</li>
-        <li>Gewicht: ca. 120 kg</li>
-        <li>Einzelstück, natürliche Kanten</li>
+        <li>Maße: 240 × 100 × 76 cm (L × B × H)</li>
+        <li>Gewicht: ca. 120 kg</li>
+        <li>Einzelstück mit Naturkante</li>
         <li>Herkunft: Indonesien</li>
       </ul>
-      <p>Preis auf Anfrage – <a href="mailto:info@holzwerk.de">Jetzt Kontakt aufnehmen</a></p>
-    </div>
+    </details>
+
+    <details>
+      <summary>Gestellvarianten</summary>
+      <ul>
+        <li>Standard: X-Gestell Stahl pulverbeschichtet (schwarz)</li>
+        <li>Optional: U-Gestell, Spider, Kufen-Gestell</li>
+        <li>Maßanfertigung auf Anfrage möglich</li>
+      </ul>
+    </details>
+
+    <p>Unsere Tische sind Unikate. Maserung, Form und Farbgebung variieren je nach Holzstück.</p>
   </div>
 </main>
 
 <footer>
-  <div class="footer-content">
-    <div>
-      <h4>Holzwerk</h4>
-      <p>Monolith-Tische aus Suarholz</p>
-      <p><a href="mailto:info@holzwerk.de">info@holzwerk.de</a></p>
-    </div>
-    <div>
-      <h4>Links</h4>
-      <p><a href="impressum.html">Impressum</a></p>
-      <p><a href="agb.html">Datenschutz & AGB</a></p>
-    </div>
-  </div>
+  <p>&copy; 2025 Holzwerk – Monolith-Tische aus Suarholz | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
 </footer>
-
-<!-- Galerie Script -->
-<script>
-  const slides = document.querySelectorAll('.slider img');
-  const prev = document.querySelector('.prev');
-  const next = document.querySelector('.next');
-  let current = 0;
-
-  function updateSlides() {
-    slides.forEach((slide, index) => {
-      slide.classList.toggle('active', index === current);
-    });
-  }
-
-  prev.addEventListener('click', () => {
-    current = (current - 1 + slides.length) % slides.length;
-    updateSlides();
-  });
-
-  next.addEventListener('click', () => {
-    current = (current + 1) % slides.length;
-    updateSlides();
-  });
-
-  updateSlides();
-</script>
 
 </body>
 </html>
