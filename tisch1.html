@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Monolith-Tisch 1 – Details</title>
   <link rel="stylesheet" href="style.css" />
+</head>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -166,8 +167,45 @@
 </main>
 
 <footer>
-  <p>&copy; 2025 Holzwerk – Monolith-Tische aus Suarholz | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
+  <div class="footer-content">
+    <div>
+      <h4>Holzwerk</h4>
+      <p>Monolith-Tische aus Suarholz</p>
+      <p><a href="mailto:info@holzwerk.de">info@holzwerk.de</a></p>
+    </div>
+    <div>
+      <h4>Links</h4>
+      <p><a href="impressum.html">Impressum</a></p>
+      <p><a href="agb.html">Datenschutz & AGB</a></p>
+    </div>
+  </div>
 </footer>
+
+<!-- Galerie Script -->
+<script>
+  const slides = document.querySelectorAll('.slider img');
+  const prev = document.querySelector('.prev');
+  const next = document.querySelector('.next');
+  let current = 0;
+
+  function updateSlides() {
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('active', index === current);
+    });
+  }
+
+  prev.addEventListener('click', () => {
+    current = (current - 1 + slides.length) % slides.length;
+    updateSlides();
+  });
+
+  next.addEventListener('click', () => {
+    current = (current + 1) % slides.length;
+    updateSlides();
+  });
+
+  updateSlides();
+</script>
 
 </body>
 </html>
