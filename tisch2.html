@@ -1,167 +1,273 @@
-<main class="tisch-detail">
-  <div class="detail-grid">
-    
-    <!-- Galerie links -->
-    <div class="slideshow-container">
-      <button class="prev" onclick="plusSlides(-1)">❮</button>
-      <img id="slider-image" src="images/tisch2.jpg" alt="Tisch 2 – Bild 1" />
-      <button class="next" onclick="plusSlides(1)">❯</button>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Monolith-Tisch 2 – Details</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      margin: 0 15px;
+      position: relative;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      top: 100%;
+      left: 0;
+      min-width: 160px;
+      z-index: 999;
+    }
+
+    .dropdown-menu li {
+      padding: 8px 12px;
+    }
+
+    .dropdown-menu li a {
+      color: #333;
+    }
+
+    main {
+      display: flex;
+      padding: 40px 20px;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .slideshow {
+      width: 480px;
+      max-width: 100%;
+      position: relative;
+    }
+
+    .slideshow img {
+      width: 100%;
+      display: none;
+    }
+
+    .slideshow img.active {
+      display: block;
+    }
+
+    .details {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .details h1 {
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    .details .price {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .details .artikelnummer {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .anfrage-button {
+      background-color: #6A8B5D;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 30px;
+    }
+
+    .accordion {
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      padding: 10px 0;
+    }
+
+    .accordion-item {
+      border-top: 1px solid #eee;
+    }
+
+    .accordion-header {
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+    }
+
+    .accordion-header span {
+      color: #6A8B5D;
+      font-size: 18px;
+    }
+
+    .accordion-content {
+      display: none;
+      padding: 10px 0;
+      color: #333;
+    }
+
+    .accordion-content p, .accordion-content ul {
+      margin: 0;
+    }
+
+    .footer {
+      background-color: #6A8B5D;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.95em;
+    }
+
+    .footer a {
+      color: white;
+      text-decoration: underline;
+      margin: 0 6px;
+    }
+
+    .footer a:hover {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="images/logo.png" alt="Holzwerk Logo" />
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="tische.html">Tische</a></li>
+      <li class="dropdown">
+        <a href="#">Unternehmen</a>
+        <ul class="dropdown-menu">
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="agb.html">AGB</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="slideshow">
+    <img src="images/tisch2.jpg" alt="Tisch 2 – Ansicht 1" class="active">
+    <img src="images/tisch2_detail1.jpg" alt="Tisch 2 – Detailansicht 1">
+    <img src="images/tisch2_detail2.jpg" alt="Tisch 2 – Detailansicht 2">
+  </div>
+
+  <div class="details">
+    <h1>Monolith-Tisch 2</h1>
+    <div class="price">3.495,00 EUR</div>
+    <div class="artikelnummer">Artikelnummer: 001-SUAR-240</div>
+    <a href="mailto:info@holzwerk.de?subject=Anfrage zu Tisch 2">
+      <button class="anfrage-button">Anfrage senden</button>
+    </a>
+
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>&#9656;</span> Technische Details
+        </div>
+        <div class="accordion-content">
+          <ul>
+            <li>Material: Suarholz, geölt</li>
+            <li>Maße: 240 x 100 x 76 cm (L x B x H)</li>
+            <li>Gewicht: ca. 120 kg</li>
+            <li>Einzelstück mit Naturkante</li>
+          </ul>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>&#9656;</span> Gestellvarianten
+        </div>
+        <div class="accordion-content">
+          <p>Wählbar: X-Gestell schwarz, U-Gestell Edelstahl oder Holzgestell</p>
+        </div>
+      </div>
     </div>
 
-    <!-- Info rechts -->
-    <div class="tisch-info">
-      <h1>Monolith-Tisch 2</h1>
-      <p class="preis">3.495,00 EUR</p>
-      <p class="artikelnummer">Artikelnummer: 001-SUAR-240</p>
-
-      <a class="anfrage-button" href="mailto:info@holzwerk.de">Anfrage senden</a>
-
-      <details class="dropdown-block">
-        <summary>Technische Details</summary>
-        <ul>
-          <li>Material: Suarholz, geölt</li>
-          <li>Maße: 240 x 110 x 76 cm (L x B x H)</li>
-          <li>Gewicht: ca. 135 kg</li>
-          <li>Einzelstück, mit Naturkante</li>
-          <li>Herkunft: Indonesien</li>
-        </ul>
-      </details>
-
-      <details class="dropdown-block">
-        <summary>Gestellvarianten</summary>
-        <ul>
-          <li>U-Gestell (Stahl, pulverbeschichtet)</li>
-          <li>X-Gestell (Edelstahl)</li>
-          <li>Schlitten-Gestell (roh oder schwarz)</li>
-        </ul>
-      </details>
-
-      <p class="hinweis">Unsere Tische sind Unikate. Maserung, Form und Farbgebung variieren je nach Holzstück.</p>
-    </div>
+    <p style="margin-top: 20px; color: #444;">
+      Unsere Tische sind Unikate. Maserung, Form und Farbgebung variieren je nach Holzstück.
+    </p>
   </div>
 </main>
 
-<style>
-  .tisch-detail {
-    padding: 40px 20px;
-    max-width: 1100px;
-    margin: auto;
-  }
-
-  .detail-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-  }
-
-  .slideshow-container {
-    position: relative;
-    width: 500px;
-    height: 320px;
-    overflow: hidden;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-
-  .slideshow-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0,0,0,0.3);
-    color: white;
-    font-size: 24px;
-    padding: 8px 12px;
-    cursor: pointer;
-    border: none;
-    border-radius: 4px;
-  }
-
-  .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.6);
-  }
-
-  .prev { left: 10px; }
-  .next { right: 10px; }
-
-  .tisch-info {
-    flex: 1;
-    min-width: 260px;
-  }
-
-  .preis {
-    font-size: 1.4em;
-    font-weight: bold;
-    margin-top: 5px;
-  }
-
-  .artikelnummer {
-    color: #666;
-    margin-bottom: 20px;
-  }
-
-  .anfrage-button {
-    display: inline-block;
-    background-color: #6A8B5D;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 500;
-    margin-bottom: 30px;
-  }
-
-  details.dropdown-block {
-    margin-bottom: 20px;
-    border-top: 1px solid #ccc;
-    padding-top: 10px;
-  }
-
-  details.dropdown-block summary {
-    font-weight: bold;
-    cursor: pointer;
-    color: #6A8B5D;
-    list-style: none;
-  }
-
-  details.dropdown-block summary::marker {
-    display: none;
-  }
-
-  .hinweis {
-    font-size: 0.9em;
-    color: #333;
-  }
-
-  @media (max-width: 768px) {
-    .detail-grid {
-      flex-direction: column;
-    }
-
-    .slideshow-container {
-      width: 100%;
-      height: auto;
-    }
-  }
-</style>
+<footer class="footer">
+  <p>
+    © 2025 Holzwerk – Monolith-Tische aus Suarholz |
+    <a href="impressum.html">Impressum</a> |
+    <a href="agb.html">AGB</a>
+  </p>
+</footer>
 
 <script>
-  const bilder = [
-    "images/tisch2.jpg",
-    "images/tisch2_detail1.jpg",
-    "images/tisch2_detail2.jpg"
-  ];
-  let aktuellePosition = 0;
+  // Slideshow
+  const slides = document.querySelectorAll('.slideshow img');
+  let current = 0;
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4000);
 
-  function plusSlides(n) {
-    aktuellePosition += n;
-    if (aktuellePosition < 0) aktuellePosition = bilder.length - 1;
-    if (aktuellePosition >= bilder.length) aktuellePosition = 0;
-    document.getElementById("slider-image").src = bilder[aktuellePosition];
-  }
+  // Accordion
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const content = header.nextElementSibling;
+      const icon = header.querySelector('span');
+      const isVisible = content.style.display === 'block';
+      content.style.display = isVisible ? 'none' : 'block';
+      icon.innerHTML = isVisible ? '&#9656;' : '&#9662;';
+    });
+  });
 </script>
+
+</body>
+</html>
