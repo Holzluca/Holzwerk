@@ -34,32 +34,41 @@
     <p>Wir sind ein Unternehmen, das sich auf die Herstellung und den Verkauf von einzigartigen Monolith-Tischen aus hochwertigem Massivholz spezialisiert hat. Unsere Tische sind Unikate und bieten höchste Qualität und Nachhaltigkeit. Wir legen großen Wert auf Handwerkskunst und die Verwendung von naturbelassenen Materialien, um zeitlose Möbel zu schaffen.</p>
   </section>
 
-  <footer>
-    <div class="footer-content">
-      <div>
-        <h4>Holzwerk</h4>
-        <p>Monolith-Tische aus Suarholz</p>
-        <p><a href="mailto:info@holzwerk.de">info@holzwerk.de</a></p>
-      </div>
-      <div>
-        <h4>Links</h4>
-        <p><a href="impressum.html">Impressum</a></p>
-        <p><a href="datenschutz.html">Datenschutz</a></p>
-      </div>
-    </div>
- <footer>
-  <div class="footer-content">
-    <div>
-      <h4>Holzwerk</h4>
-      <p>Monolith-Tische aus Suarholz</p>
-      <p><a href="mailto:info@holzwerk.de">info@holzwerk.de</a></p>
-    </div>
-    <div>
-      <h4>Links</h4>
-      <p><a href="impressum.html">Impressum</a></p>
-      <p><a href="datenschutz.html">Datenschutz</a></p>
-    </div>
-  </div>
+   <style>
+    :root {
+      --holzwerk-gruen: #275317;
+    }
+
+   footer {
+      background: var(--holzwerk-gruen);
+      color: #fff;
+      padding: 40px 60px;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    footer a {
+      color: #e6e6e6;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <footer class="footer">
+  <p>
+    © 2025 Holzwerk – Monolith-Tische aus Suarholz |
+    <a href="impressum.html">Impressum</a> |
+    <a href="agb.html">AGB</a>
+  </p>
 </footer>
 
 </body>
