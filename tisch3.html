@@ -190,19 +190,41 @@
   </div>
 </main>
 
-<footer>
-  <div class="footer-content">
-    <div>
-      <h4>Holzwerk</h4>
-      <p>Monolith-Tische aus Suarholz</p>
-      <p><a href="mailto:info@holzwerk.de">info@holzwerk.de</a></p>
-    </div>
-    <div>
-      <h4>Links</h4>
-      <p><a href="impressum.html">Impressum</a></p>
-      <p><a href="agb.html">AGB</a></p>
-    </div>
-  </div>
+ <style>
+    :root {
+      --holzwerk-gruen: #275317;
+    }
+
+   footer {
+      background: var(--holzwerk-gruen);
+      color: #fff;
+      padding: 40px 60px;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    footer a {
+      color: #e6e6e6;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <footer class="footer">
+  <p>
+    © 2025 Holzwerk – Monolith-Tische aus Suarholz |
+    <a href="impressum.html">Impressum</a> |
+    <a href="agb.html">AGB</a>
+  </p>
 </footer>
 
 <script>
