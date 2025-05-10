@@ -2,14 +2,130 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Monolith-Tisch 3 – Details</title>
+  <title>Monolith-Tisch 2 – Details</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --holzwerk-gruen: #275317;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .tisch-detail {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 20px;
+      display: flex;
+      gap: 40px;
+    }
+
+    .slideshow {
+      flex: 1;
+      max-width: 600px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slideshow img {
+      width: 100%;
+      height: auto;
+      display: none; /* Standardmäßig alle Bilder ausblenden */
+      border-radius: 6px;
+    }
+
+    .slideshow img.active {
+      display: block; /* Nur das aktive Bild anzeigen */
+    }
+
+    .details {
+      flex: 1;
+    }
+
+    .details h3 {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      color: var(--holzwerk-gruen);
+    }
+
+    .details ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .accordion {
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+    }
+
+    .accordion-item {
+      margin-bottom: 10px;
+    }
+
+    .accordion-header {
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      color: var(--holzwerk-gruen);
+    }
+
+    .accordion-content {
+      display: none;
+      padding: 10px 0 20px;
+    }
+
+    .accordion-header span {
+      font-size: 18px;
+      color: var(--holzwerk-gruen);
+    }
+
+    .anfrage-button {
+      background-color: var(--holzwerk-gruen);
+      color: white;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 30px;
+    }
+
+    footer {
+      background: var(--holzwerk-gruen);
+      color: #fff;
+      padding: 40px 60px;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    footer a {
+      color: #e6e6e6;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
 
 <header>
   <div class="logo">
-    <img src="images/logo.png" alt="Holzwerk Logo" />
+    <img src="images/logo.png" alt="Holzwerk Logo" height="80" />
   </div>
   <nav>
     <ul>
@@ -30,24 +146,47 @@
 </header>
 
 <main class="tisch-detail">
-  <h1>Monolith-Tisch 3</h1>
-  <div class="detail-container">
-    <div class="bildergalerie">
-      <img src="images/tisch2.jpg" alt="Tisch 2 – Hauptansicht">
-      <img src="images/tisch2_detail1.jpg" alt="Tisch 2 – Detailansicht 1">
-      <img src="images/tisch2_detail2.jpg" alt="Tisch 2 – Detailansicht 2">
+  <div class="slideshow">
+    <img src="images/tisch2.jpg" alt="Tisch 2 – Hauptansicht" class="slide" />
+    <img src="images/tisch2_detail1.jpg" alt="Tisch 2 – Detail 1" class="slide" />
+    <img src="images/tisch2_detail2.jpg" alt="Tisch 2 – Detail 2" class="slide" />
+  </div>
+
+  <div class="details">
+    <h1>Monolith-Tisch 2</h1>
+    <p><strong>Preis:</strong> 2.900 €</p>
+
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          Technische Angaben <span>+</span>
+        </div>
+        <div class="accordion-content">
+          <ul>
+            <li>Material: Suarholz, geölt</li>
+            <li>Maße: 260 x 95 x 76 cm (L x B x H)</li>
+            <li>Gewicht: ca. 130 kg</li>
+            <li>Unikat mit Naturkante</li>
+            <li>Herkunft: Indonesien</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          Gestelle <span>+</span>
+        </div>
+        <div class="accordion-content">
+          <ul>
+            <li>U-Gestell: Stahl, schwarz pulverbeschichtet</li>
+            <li>Kreuzgestell: Edelstahl gebürstet</li>
+            <li>Individuelle Sonderanfertigungen möglich</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="details">
-      <h3>Technische Angaben</h3>
-      <ul>
-        <li>Material: Suarholz, fein geschliffen</li>
-        <li>Maße: 220 x 95 x 75 cm (L x B x H)</li>
-        <li>Gewicht: ca. 110 kg</li>
-        <li>Unikat mit Naturkante</li>
-        <li>Herkunft: Indonesien</li>
-      </ul>
-      <p>Preis auf Anfrage – <a href="mailto:info@holzwerk.de">Jetzt Kontakt aufnehmen</a></p>
-    </div>
+
+    <a href="mailto:info@holzwerk.de?subject=Anfrage%20Tisch%202" class="anfrage-button">Anfrage senden</a>
   </div>
 </main>
 
@@ -61,10 +200,35 @@
     <div>
       <h4>Links</h4>
       <p><a href="impressum.html">Impressum</a></p>
-      <p><a href="datenschutz.html">Datenschutz</a></p>
+      <p><a href="agb.html">AGB</a></p>
     </div>
   </div>
 </footer>
+
+<script>
+  function toggleAccordion(header) {
+    const content = header.nextElementSibling;
+    const open = content.style.display === 'block';
+    document.querySelectorAll('.accordion-content').forEach(c => c.style.display = 'none');
+    document.querySelectorAll('.accordion-header span').forEach(s => s.textContent = '+');
+    if (!open) {
+      content.style.display = 'block';
+      header.querySelector('span').textContent = '−';
+    }
+  }
+
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slideshow .slide');
+
+  function showSlide() {
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[currentSlide].classList.add('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+  }
+
+  setInterval(showSlide, 3000);
+  showSlide();
+</script>
 
 </body>
 </html>
