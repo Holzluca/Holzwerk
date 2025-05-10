@@ -5,6 +5,32 @@
   <title>Monolith-Tisch 1 – Details</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
+  <script>
+  const slides = document.querySelectorAll('.slider img');
+  const prev = document.querySelector('.prev');
+  const next = document.querySelector('.next');
+  let current = 0;
+
+  function updateSlides() {
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('active', index === current);
+    });
+  }
+
+  prev.addEventListener('click', () => {
+    current = (current - 1 + slides.length) % slides.length;
+    updateSlides();
+  });
+
+  next.addEventListener('click', () => {
+    current = (current + 1) % slides.length;
+    updateSlides();
+  });
+
+  updateSlides();
+</script>
+  
 <body>
 
  <header>
