@@ -5,188 +5,112 @@
   <title>Monolith-Tisch 1 – Details</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fff;
-      color: #333;
-    }
-
-    header, footer {
-      background-color: #4A7856;
-      color: white;
-      padding: 10px 20px;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      gap: 20px;
-    }
-
-    nav ul li {
-      position: relative;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-    }
-
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      background-color: #4A7856;
-      top: 100%;
-      left: 0;
-      min-width: 160px;
-      z-index: 1;
-    }
-
-    .dropdown:hover .dropdown-menu {
-      display: block;
-    }
-
-    .dropdown-menu li {
-      padding: 8px 12px;
-    }
-
-    main {
+    .tisch-detail {
       padding: 40px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
     .detail-container {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
       gap: 40px;
-      justify-content: center;
     }
 
-    .bildergalerie {
-      flex: 1 1 400px;
-      max-width: 500px;
+    .slideshow-container {
       position: relative;
+      max-width: 600px;
+      height: 340px;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
-    .bildergalerie img {
+    .slideshow-container img {
       width: 100%;
-      height: 300px;
+      height: 100%;
       object-fit: cover;
-      border-radius: 4px;
     }
 
-    .slider-buttons {
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    .slider-buttons button {
-      margin: 0 5px;
-      padding: 5px 10px;
-      background-color: #4A7856;
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 12px;
+      font-size: 24px;
       color: white;
+      background-color: rgba(0,0,0,0.3);
       border: none;
       border-radius: 4px;
-      cursor: pointer;
     }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .prev { left: 0; }
+    .next { right: 0; }
 
     .details {
-      flex: 1 1 300px;
-      max-width: 500px;
+      max-width: 600px;
+      text-align: left;
     }
 
-    .price {
-      font-size: 20px;
-      font-weight: bold;
-      color: #4A7856;
-      margin-bottom: 10px;
+    .details ul {
+      list-style-type: disc;
+      margin-left: 20px;
     }
 
     .anfrage {
       display: inline-block;
-      background-color: #4A7856;
+      background-color: #6A8B5D; /* exakt wie index.html */
       color: white;
       padding: 10px 20px;
       border-radius: 4px;
       text-decoration: none;
-      margin-bottom: 20px;
-    }
-
-    details {
       margin-top: 20px;
-    }
-
-    footer {
-      margin-top: 60px;
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .footer-content div {
-      margin: 10px 0;
-    }
-
-    .footer-content a {
-      color: white;
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">
-    <img src="images/logo.png" alt="Holzwerk Logo" style="height: 40px;">
-  </div>
-  <nav>
-    <ul>
-      <li><a href="index.html">Start</a></li>
-      <li><a href="tische.html">Tische</a></li>
-      <li class="dropdown">
-        <a href="#">Unternehmen</a>
-        <ul class="dropdown-menu">
-          <li><a href="ueber-uns.html">Über uns</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-          <li><a href="impressum.html">Impressum</a></li>
-          <li><a href="agb.html">AGB</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-</header>
-
-<main>
-  <h1>Monolith-Tisch 1</h1>
-  <div class="detail-container">
-    <div class="bildergalerie">
-      <img id="slider-image" src="images/tisch1.jpg" alt="Tisch 1 Bild 1" />
-      <div class="slider-buttons">
-        <button onclick="wechselBild(0)">1</button>
-        <button onclick="wechselBild(1)">2</button>
-        <button onclick="wechselBild(2)">3</button>
-      </div>
+  <!-- Header wie auf index.html -->
+  <header>
+    <div class="logo">
+      <img src="images/logo.png" alt="Holzwerk Logo" />
     </div>
-    <div class="details">
-      <div class="price">3.495 EUR</div>
-      <a class="anfrage" href="mailto:info@holzwerk.de?subject=Anfrage%20zu%20Tisch%201">Anfrage senden</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="tische.html">Tische</a></li>
+        <li class="dropdown">
+          <a href="#">Unternehmen</a>
+          <ul class="dropdown-menu">
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="agb.html">AGB</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-      <details>
-        <summary><strong>Technische Angaben</strong></summary>
+  <main class="tisch-detail">
+    <h1>Monolith-Tisch 1</h1>
+    <div class="detail-container">
+
+      <div class="slideshow-container">
+        <button class="prev" onclick="plusSlides(-1)">❮</button>
+        <img id="slider-image" src="images/tisch1.jpg" alt="Tisch 1 – Bild 1" />
+        <button class="next" onclick="plusSlides(1)">❯</button>
+      </div>
+
+      <div class="details">
+        <h3>Technische Angaben</h3>
         <ul>
           <li>Material: Suarholz, geölt</li>
           <li>Maße: 240 x 100 x 76 cm (L x B x H)</li>
@@ -194,38 +118,45 @@
           <li>Einzelstück, natürliche Kanten</li>
           <li>Herkunft: Indonesien</li>
         </ul>
-      </details>
+        <p><strong>Preis:</strong> 2.790 €</p>
+        <a class="anfrage" href="mailto:info@holzwerk.de">Anfrage senden</a>
+      </div>
 
-      <details>
-        <summary><strong>Gestellvarianten</strong></summary>
-        <ul>
-          <li>Standard: X-Gestell, Stahl schwarz matt</li>
-          <li>Optional: U-Gestell, Kufen, Spider</li>
-          <li>Maßanfertigung auf Anfrage</li>
-        </ul>
-      </details>
     </div>
-  </div>
-</main>
+  </main>
 
-<footer>
-  <p>&copy; 2025 Holzwerk – Monolith-Tische aus Suarholz | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
-</footer>
+  <!-- Footer wie auf index.html -->
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h4>Holzwerk</h4>
+        <p>Monolith-Tische aus Suarholz</p>
+        <p><a href="mailto:info@holzwerk.de">info@holzwerk.de</a></p>
+      </div>
+      <div>
+        <h4>Links</h4>
+        <p><a href="impressum.html">Impressum</a></p>
+        <p><a href="datenschutz.html">Datenschutz</a></p>
+      </div>
+    </div>
+  </footer>
 
-</body>
-</html>
+  <!-- Slideshow JS -->
+  <script>
+    const bilder = [
+      "images/tisch1.jpg",
+      "images/tisch1_detail1.jpg",
+      "images/tisch1_detail2.jpg"
+    ];
+    let aktuellePosition = 0;
 
-<script>
-  const bilder = [
-    "images/tisch1.jpg",
-    "images/tisch1_detail1.jpg",
-    "images/tisch1_detail2.jpg"
-  ];
-
-  function wechselBild(index) {
-    document.getElementById("slider-image").src = bilder[index];
-  }
-</script>
+    function plusSlides(n) {
+      aktuellePosition += n;
+      if (aktuellePosition < 0) aktuellePosition = bilder.length - 1;
+      if (aktuellePosition >= bilder.length) aktuellePosition = 0;
+      document.getElementById("slider-image").src = bilder[aktuellePosition];
+    }
+  </script>
 
 </body>
 </html>
