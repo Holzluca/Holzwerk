@@ -203,16 +203,24 @@ nav a:hover {
   color: #fff;
   padding: 20px 60px;
   margin-top: 60px;
-  display: flex;  /* Verwenden von Flexbox für die mittige Ausrichtung */
+  display: flex;           /* Flexbox aktivieren */
   justify-content: center; /* Horizontale Zentrierung */
-  align-items: center; /* Vertikale Zentrierung */
+  align-items: center;     /* Vertikale Zentrierung */
+  text-align: center;      /* Zentriert den Text innerhalb des <p>-Tags */
 }
 
 .footer p {
-  margin: 0;
-  text-align: center;  /* Zentriert den Text innerhalb des p-Tags */
+  margin: 0;               /* Entfernt den standardmäßigen Abstand um den Paragraphen */
 }
 
+.footer a {
+  color: #e6e6e6;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
 /* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
   header {
