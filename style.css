@@ -203,20 +203,14 @@ nav a:hover {
   color: #fff;
   padding: 20px 60px;
   margin-top: 60px;
-  text-align: center; /* Zentriert den Text */
+  display: flex;  /* Verwenden von Flexbox für die mittige Ausrichtung */
+  justify-content: center; /* Horizontale Zentrierung */
+  align-items: center; /* Vertikale Zentrierung */
 }
 
 .footer p {
-  margin: 0; /* Entfernt standardmäßige Ränder */
-}
-
-.footer a {
-  color: #e6e6e6;
-  text-decoration: none;
-}
-
-.footer a:hover {
-  text-decoration: underline;
+  margin: 0;
+  text-align: center;  /* Zentriert den Text innerhalb des p-Tags */
 }
 
 /* RESPONSIVE DESIGN */
