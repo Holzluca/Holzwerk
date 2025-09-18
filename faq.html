@@ -4,10 +4,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ – Holzwerk</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Navigation: Dropdown auf Hover/Focus -->
+  <style>
+    nav .dropdown { position: relative; }
+    nav .dropdown > a { display: inline-block; }
+    nav .dropdown > .dropdown-menu {
+      display: none; position: absolute; left: 0; top: 100%;
+      min-width: 200px; background: #fff; border: 1px solid #e6e6e6;
+      border-radius: 6px; padding: 8px 0; z-index: 999;
+      box-shadow: 0 8px 20px rgba(0,0,0,.08);
+      transform: translateY(6px); opacity: 0; transition: opacity .15s, transform .15s;
+    }
+    nav .dropdown-menu li { list-style: none; }
+    nav .dropdown-menu a { display: block; padding: 10px 14px; text-decoration: none; color: #333; white-space: nowrap; }
+    nav .dropdown-menu a:hover { background: #f5f5f5; }
+    nav .dropdown:hover > .dropdown-menu,
+    nav .dropdown:focus-within > .dropdown-menu { display: block; transform: translateY(0); opacity: 1; }
+  </style>
+
+  <!-- FAQ Layout (nur für diese Seite) -->
+  <style>
+    :root { --holzwerk-gruen:#275317; --text:#222; --muted:#555; --border:#eaeaea; --card:#fff; }
+
+    .faq {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+    .faq h1 { margin-bottom: 8px; }
+    .faq .lead { color: var(--muted); margin: 0 0 18px; }
+
+    /* Quicklinks */
+    .faq .quicklinks {
+      display: grid; grid-template-columns: 1fr; gap: 10px;
+      margin: 14px 0 20px;
+    }
+    @media (min-width: 720px) { .faq .quicklinks { grid-template-columns: repeat(3,1fr); } }
+    .faq .q-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+      padding: 10px 12px; display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: inherit; transition: transform .12s, box-shadow .12s;
+    }
+    .faq .q-card:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0,0,0,.06); }
+    .faq .q-icon { width: 22px; height: 22px; }
+    .faq .q-icon svg { width: 100%; height: 100%; stroke: var(--holzwerk-gruen); }
+
+    /* Akkordeon */
+    .accordion { display: grid; gap: 12px; }
+    .acc-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--card);
+      overflow: hidden;
+    }
+    .acc-btn {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      width: 100%;
+      text-align: left;
+      background: #fff;
+      border: 0;
+      padding: 14px 16px;
+      font-size: 1.02rem;
+      cursor: pointer;
+      align-items: center;
+    }
+    .acc-btn:hover { background: #fafafa; }
+    .acc-icon { width: 22px; height: 22px; }
+    .acc-icon svg { width: 100%; height: 100%; stroke: var(--holzwerk-gruen); }
+    .acc-chevron { width: 18px; height: 18px; transition: transform .18s ease; }
+    .acc-chevron svg { width: 100%; height: 100%; stroke: #333; }
+
+    .acc-panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .25s ease;
+      padding: 0 16px;
+    }
+    .acc-panel > div { overflow: hidden; }
+    .acc-item.open .acc-panel { grid-template-rows: 1fr; padding-bottom: 12px; }
+    .acc-item.open .acc-chevron { transform: rotate(180deg); }
+
+    /* Listen / Text im Panel */
+    .acc-panel p { margin: 10px 0 0; color: var(--muted); }
+    .acc-panel ul { margin: 8px 0 0 18px; }
+    .acc-panel li { margin: 6px 0; }
+  </style>
 </head>
 <body>
 
- <header>
+<header>
   <div class="logo">
     <img src="images/logo.png" alt="Holzwerk Logo" />
   </div>
@@ -16,8 +106,8 @@
       <li><a href="index.html">Start</a></li>
       <li><a href="tische.html">Tische</a></li>
       <li class="dropdown">
-        <a href="#">Unternehmen</a>
-        <ul class="dropdown-menu">
+        <a href="#" aria-haspopup="true" aria-expanded="false">Unternehmen</a>
+        <ul class="dropdown-menu" aria-label="Untermenü Unternehmen">
           <li><a href="ueber-uns.html">Über uns</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
@@ -29,77 +119,232 @@
   </nav>
 </header>
 
-  <section class="faq">
-    <h1>Häufige Fragen (FAQ)</h1>
-    
-    <h2>Ich möchte meinen Kauf zurückgeben! Was muss ich tun?</h2>
-    <p>Wenn Sie mit Ihrem Kauf nicht zufrieden sind, können Sie Ihren Tisch innerhalb von 14 Tagen nach dem Kauf gegen volle Rückerstattung zurückgeben. Rücksendungen müssen unbenutzt sein (z.B. keine Bohrlöcher oder jegliche Abnutzung), in dem Zustand, in dem Sie ihn erhalten haben. Bitte verpacken Sie den Artikel ähnlich dem Originalzustand. Die Rücksendung ist kostenpflichtig und wird von einer Spedition abgeholt.</p>
-    
-    <h2>Wie lange dauert die Rücksendung und wie wird sie bearbeitet?</h2>
-    <p>Bei den meisten Rücksendungen dauert es etwa 5-10 Werktage, bis wir den Artikel zurückerhalten haben und Ihre Rückerstattung abschließen können. Wenn die Rückerstattung auf eine Kreditkarte erfolgt, kann es je nach Kreditkartenunternehmen weitere 2-10 Werktage dauern, bis die Gutschrift auf Ihrem Konto verbucht ist.</p>
+<section class="faq">
+  <h1>Häufige Fragen (FAQ)</h1>
+  <p class="lead">Kurz & klar beantwortet. Wenn etwas fehlt: <a href="kontakt.html">Kontakt aufnehmen</a> – wir helfen gern.</p>
 
-    <h2>Sind die Produkte vormontiert?</h2>
-    <p>Nein, die Tische werden getrennt geliefert. Da wir Ihre Gegebenheiten vor Ort nicht kennen, können Sie den Tisch selbst gemäß Ihren Wünschen montieren.</p>
-    
-    <h2>Werden die Tische geölt oder lackiert?</h2>
-    <p>Unsere Tischplatten werden mit einem Premiumöl von Rubio Monocoat geölt. Die Öle sind lösungsmittelfrei und pflegen das Holz, während sie ihm gleichzeitig einen natürlichen Glanz verleihen.</p>
+  <!-- Quicklinks -->
+  <div class="quicklinks">
+    <a class="q-card" href="#retoure">
+      <span class="q-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12l4-4M3 12l4 4"/><path d="M7 12h9a4 4 0 1 1 0 8H7"/>
+        </svg>
+      </span>
+      Rückgabe & Erstattung
+    </a>
+    <a class="q-card" href="#lieferung">
+      <span class="q-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 7h12v8H3z"/><path d="M15 11h4l2 2v2h-6z"/><circle cx="7.5" cy="17" r="2"/><circle cx="17.5" cy="17" r="2"/>
+        </svg>
+      </span>
+      Versand & Lieferung
+    </a>
+    <a class="q-card" href="#zahlung">
+      <span class="q-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/>
+        </svg>
+      </span>
+      Zahlung & Steuer
+    </a>
+  </div>
 
-    <h2>Wie ist die Beschaffenheit der Tischplatten?</h2>
-    <p>Jeder Tisch ist ein Unikat. Unsere Tischplatten bestehen aus einem Stück massivem Suarholz. Diese werden nicht geleimt, aufgedoppelt oder mit einer optischen Kante versehen. Sie behalten die natürliche Maserung und Struktur des Holzes bei.</p>
+  <!-- Akkordeon -->
+  <div class="accordion">
 
-    <h2>Wie werden die Artikel versendet und wie hoch sind die Versandkosten?</h2>
-    <p>Wir versenden per Spedition bis Bordsteinkante. Dies bedeutet, dass der Tisch bis zum gewünschten Raum geliefert wird. Der Versand innerhalb Deutschlands kostet 69,00 EUR. Für Sendungen ins Ausland bitten wir um eine individuelle Anfrage.</p>
+    <!-- Rückgabe -->
+    <article class="acc-item" id="retoure">
+      <button class="acc-btn" aria-expanded="false" aria-controls="panel-retoure">
+        <span class="acc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12l4-4M3 12l4 4"/><path d="M7 12h9a4 4 0 1 1 0 8H7"/>
+          </svg>
+        </span>
+        <span>Ich möchte meinen Kauf zurückgeben – was muss ich tun?</span>
+        <span class="acc-chevron" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </span>
+      </button>
+      <div class="acc-panel" id="panel-retoure">
+        <div>
+          <p>Sie können Ihren Tisch innerhalb von <strong>14 Tagen</strong> zurückgeben. Voraussetzung: unbenutzt (keine Bohrungen/Abnutzung) und im gelieferten Zustand. Bitte möglichst in einer vergleichbaren Verpackung bereitstellen. Die Rücksendung erfolgt per Spedition und ist kostenpflichtig.</p>
+        </div>
+      </div>
+    </article>
 
-    <h2>Erheben Sie Umsatzsteuer auf alle Artikel?</h2>
-    <p>Die Umsatzsteuer entfällt aufgrund der Kleinunternehmerregelung.</p>
+    <article class="acc-item">
+      <button class="acc-btn" aria-expanded="false" aria-controls="panel-refund">
+        <span class="acc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M12 6v12M8 10h6a2 2 0 0 1 0 4H8"/>
+          </svg>
+        </span>
+        <span>Wie lange dauert die Rücksendung und Erstattung?</span>
+        <span class="acc-chevron" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </span>
+      </button>
+      <div class="acc-panel" id="panel-refund">
+        <div>
+          <p>In der Regel treffen Rücksendungen innerhalb von <strong>5–10 Werktagen</strong> bei uns ein. Die Erstattung erfolgt nach Wareneingang. Bei Kreditkarten kann die Gutschrift je nach Anbieter weitere <strong>2–10 Werktage</strong> dauern.</p>
+        </div>
+      </div>
+    </article>
 
-    <h2>Welche Zahlungsarten akzeptieren Sie?</h2>
-    <p>Wir akzeptieren Barzahlung, Vorkasse und Zahlung auf Rechnung.</p>
+    <!-- Produkt & Pflege -->
+    <article class="acc-item">
+      <button class="acc-btn" aria-expanded="false" aria-controls="panel-vormontiert">
+        <span class="acc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 7h16v10H4z"/><path d="M8 7V3h8v4"/>
+          </svg>
+        </span>
+        <span>Sind die Produkte vormontiert?</span>
+        <span class="acc-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="acc-panel" id="panel-vormontiert">
+        <div>
+          <p>Die Tische werden aus Transportgründen <strong>zerlegt</strong> geliefert (Platte & Gestell getrennt). So können Sie die Montage vor Ort flexibel an Ihre Gegebenheiten anpassen.</p>
+        </div>
+      </div>
+    </article>
 
-    <h2>Was sind Cookies? Muss ich Cookies in meinem Browser zulassen?</h2>
-    <p>Ein Cookie ist eine kleine Datenmenge, die von einer Website an Ihren Browser gesendet und auf der Festplatte Ihres Computers gespeichert wird. Wenn die Einstellungen Ihres Browsers es zulassen (bei den meisten Browsern sind Cookies aktiviert), kann jede Website ihren eigenen Cookie an Ihren Browser senden. Um Ihre Privatsphäre zu schützen, speichern Cookies keine persönlichen Informationen, sondern verwenden anonyme eindeutige Kennungen. Jede Website kann nur auf das Cookie zugreifen, das sie selbst auf Ihrer Festplatte gespeichert hat, nicht aber auf die Cookies anderer Websites. Um alle Funktionen der Website nutzen zu können, müssen Sie Cookies in Ihrem Browser aktivieren.</p>
+    <article class="acc-item">
+      <button class="acc-btn" aria-expanded="false" aria-controls="panel-oel">
+        <span class="acc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l4 8a4 4 0 1 1-8 0l4-8z"/><path d="M9 14h6v6H9z"/>
+          </svg>
+        </span>
+        <span>Werden die Tische geölt oder lackiert?</span>
+        <span class="acc-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="acc-panel" id="panel-oel">
+        <div>
+          <p>Unsere Platten werden mit <strong>Premiumöl (z. B. Rubio Monocoat)</strong> behandelt. Die lösungsmittelfreie Oberfläche schützt das Holz und bewahrt die natürliche Haptik.</p>
+        </div>
+      </div>
+    </article>
 
-    <h2>Wie kann ich mehr über die Verwendung von Cookies erfahren?</h2>
-    <p>Weitere Informationen über den Umgang mit Cookies finden Sie in unserer Datenschutzrichtlinie.</p>
+    <article class="acc-item">
+      <button class="acc-btn" aria-expanded="false" aria-controls="panel-beschaffenheit">
+        <span class="acc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h10M7 13h6"/>
+          </svg>
+        </span>
+        <span>Wie ist die Beschaffenheit der Tischplatten?</span>
+        <span class="acc-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="acc-panel" id="panel-beschaffenheit">
+        <div>
+          <p>Jeder Tisch ist ein Unikat: Die Platte besteht aus <strong>einem Stück massivem Suar-Holz</strong>, nicht geleimt oder aufgedoppelt – mit natürlicher Maserung und Struktur.</p>
+        </div>
+      </div>
+    </article>
 
-  </section>
+    <!-- Versand & Zahlung -->
+    <article class="acc-item" id="lieferung">
+      <button class="acc-btn" aria-expanded="false" aria-controls="panel-versand">
+        <span class="acc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 7h12v8H3z"/><path d="M15 11h4l2 2v2h-6z"/><circle cx="7.5" cy="17" r="2"/><circle cx="17.5" cy="17" r="2"/>
+          </svg>
+        </span>
+        <span>Wie werden die Artikel versendet und welche Kosten fallen an?</span>
+        <span class="acc-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="acc-panel" id="panel-versand">
+        <div>
+          <p>Wir liefern per <strong>Spedition</strong> bis <strong>zur Bordsteinkante</strong>. Der Versand innerhalb Deutschlands kostet <strong>69,00 €</strong>. Für Lieferungen ins Ausland erstellen wir Ihnen gern ein individuelles Angebot.</p>
+        </div>
+      </div>
+    </article>
 
-  <style>
-    :root {
-      --holzwerk-gruen: #275317;
-    }
+    <article class="acc-item" id="zahlung">
+      <button class="acc-btn" aria-expanded="false" aria-controls="panel-steuer">
+        <span class="acc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/>
+          </svg>
+        </span>
+        <span>Erheben Sie Umsatzsteuer? Welche Zahlungsarten gibt es?</span>
+        <span class="acc-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="acc-panel" id="panel-steuer">
+        <div>
+          <p>Wir wenden die <strong>Kleinunternehmerregelung</strong> an – eine Ausweisung der Umsatzsteuer erfolgt nicht.</p>
+          <ul>
+            <li><strong>Zahlungsarten:</strong> Barzahlung, Vorkasse, Zahlung auf Rechnung.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
 
-   footer {
-      background: var(--holzwerk-gruen);
-      color: #fff;
-      padding: 40px 60px;
-      margin-top: 60px;
-    }
+    <!-- Cookies & Datenschutz -->
+    <article class="acc-item">
+      <button class="acc-btn" aria-expanded="false" aria-controls="panel-cookies">
+        <span class="acc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/><path d="M8 10h.01M12 7h.01M16 10h.01M11 15h.01"/>
+          </svg>
+        </span>
+        <span>Was sind Cookies? Muss ich sie zulassen?</span>
+        <span class="acc-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="acc-panel" id="panel-cookies">
+        <div>
+          <p>Cookies sind kleine Dateien, die Ihr Browser speichert, damit Funktionen (z. B. Warenkorb, Einstellungen) zuverlässig arbeiten. Sie enthalten keine personenbezogenen Daten, sondern anonyme Kennungen. Um alle Funktionen zu nutzen, sollten Cookies aktiviert sein. Details finden Sie in unserer <a href="impressum.html">Datenschutzerklärung</a>.</p>
+        </div>
+      </div>
+    </article>
 
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
+  </div>
+</section>
 
-    footer a {
-      color: #e6e6e6;
-      text-decoration: none;
-    }
+<style>
+  :root { --holzwerk-gruen: #275317; }
+  footer { background: var(--holzwerk-gruen); color: #fff; padding: 40px 60px; margin-top: 60px; }
+  .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  footer a { color: #e6e6e6; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
 
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
-
-  <footer class="footer">
+<footer class="footer">
   <p>
     © 2025 Holzwerk – Monolith-Tische aus Suarholz |
     <a href="impressum.html">Impressum</a> |
     <a href="agb.html">AGB</a>
   </p>
 </footer>
+
+<!-- Akkordeon-Logik (leicht, barrierearm) -->
+<script>
+  (function(){
+    // Toggle auf Klick
+    document.querySelectorAll('.acc-item').forEach(function(item){
+      var btn = item.querySelector('.acc-btn');
+      btn.addEventListener('click', function(){
+        var open = item.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    });
+    // Direktes Öffnen via Anker (Quicklinks)
+    if (location.hash) {
+      var target = document.querySelector(location.hash + '.acc-item') || document.querySelector(location.hash);
+      if (target && target.classList) {
+        var btn = target.querySelector('.acc-btn');
+        target.classList.add('open');
+        if (btn) btn.setAttribute('aria-expanded','true');
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    }
+  })();
+</script>
 
 </body>
 </html>
