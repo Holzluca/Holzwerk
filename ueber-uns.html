@@ -4,61 +4,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Über uns – Holzwerk</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Menü: Hover-/Focus-Dropdown (dezent, nur Navigation) -->
   <style>
-    /* Nur für die About-Section, Design sonst unverändert */
-    .about {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
+    nav .dropdown { position: relative; }
+    nav .dropdown > a { display: inline-block; }
+    nav .dropdown > .dropdown-menu {
+      display: none;
+      position: absolute; left: 0; top: 100%;
+      min-width: 200px; background: #fff;
+      border: 1px solid #e6e6e6; border-radius: 6px;
+      padding: 8px 0; z-index: 999;
+      box-shadow: 0 8px 20px rgba(0,0,0,.08);
+      transform: translateY(6px); opacity: 0;
+      transition: opacity .15s ease, transform .15s ease;
     }
-    .about h1 {
-      margin-bottom: 10px;
+    nav .dropdown-menu li { list-style: none; }
+    nav .dropdown-menu a {
+      display: block; padding: 10px 14px;
+      text-decoration: none; color: #333; white-space: nowrap;
     }
-    .about .lead {
-      font-size: 1.05rem;
-      margin-bottom: 24px;
-      color: #333;
+    nav .dropdown-menu a:hover { background: #f5f5f5; }
+    nav .dropdown:hover > .dropdown-menu,
+    nav .dropdown:focus-within > .dropdown-menu {
+      display: block; transform: translateY(0); opacity: 1;
     }
-    .about .section {
-      margin: 28px 0;
-    }
-    .about .section h2 {
-      margin: 0 0 8px 0;
-      font-size: 1.35rem;
-    }
-    .about .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 22px;
-    }
-    @media (min-width: 820px) {
-      .about .grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
+  </style>
+
+  <!-- About-Layout + Icon-Row: nur innerhalb .about -->
+  <style>
+    .about { max-width: 1100px; margin: 40px auto; padding: 0 20px; line-height: 1.6; }
+    .about h1 { margin-bottom: 10px; }
+    .about .lead { font-size: 1.05rem; margin-bottom: 24px; color: #333; }
+
+    .about .grid { display: grid; grid-template-columns: 1fr; gap: 22px; }
+    @media (min-width: 820px){ .about .grid { grid-template-columns: 1fr 1fr; } }
+
+    .about .section { margin: 0; }
     .about .card {
-      background: #fff;
-      border: 1px solid #e6e6e6;
-      border-radius: 8px;
-      padding: 18px;
+      background: #fff; border: 1px solid #e6e6e6; border-radius: 8px; padding: 18px;
     }
-    .about strong {
-      font-weight: 600;
+    .about .section h2 { margin: 0 0 8px; font-size: 1.35rem; }
+    .about strong { font-weight: 600; }
+
+    .about ul.bullets { padding-left: 18px; margin: 10px 0 0; }
+    .about ul.bullets li { margin: 6px 0; }
+    .about .note { margin-top: 16px; color: #555; font-size: .95rem; }
+
+    /* Icon-Row */
+    :root { --holzwerk-gruen: #275317; }
+    .about .icon-row { max-width: 1100px; margin: 36px auto 8px; padding: 0 20px; }
+    .about .icon-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+    @media (min-width: 700px){ .about .icon-grid { grid-template-columns: repeat(3,1fr); } }
+    @media (min-width: 1024px){ .about .icon-grid { grid-template-columns: repeat(4,1fr); } }
+    .about .icon-card {
+      text-align: center; background: #fff; border: 1px solid #eaeaea;
+      border-radius: 12px; padding: 20px 18px; transition: transform .15s, box-shadow .15s;
     }
-    .about ul.bullets {
-      padding-left: 18px;
-      margin: 10px 0 0 0;
-    }
-    .about ul.bullets li {
-      margin: 6px 0;
-    }
-    /* kleine Note unter dem Schlussabsatz */
-    .about .note {
-      margin-top: 16px;
-      color: #555;
-      font-size: 0.95rem;
-    }
+    .about .icon-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.06); }
+    .about .icon-wrap { width: 52px; height: 52px; margin: 0 auto 10px; }
+    .about .icon-wrap svg { width: 100%; height: 100%; display: block; stroke: var(--holzwerk-gruen); }
+    .about .icon-card h3 { margin: 6px 0 6px; font-size: 1.05rem; }
+    .about .icon-card p { margin: 0; color: #444; line-height: 1.5; font-size: .98rem; }
   </style>
 </head>
 <body>
@@ -72,8 +79,8 @@
       <li><a href="index.html">Start</a></li>
       <li><a href="tische.html">Tische</a></li>
       <li class="dropdown">
-        <a href="#">Unternehmen</a>
-        <ul class="dropdown-menu">
+        <a href="#" aria-haspopup="true" aria-expanded="false">Unternehmen</a>
+        <ul class="dropdown-menu" aria-label="Untermenü Unternehmen">
           <li><a href="ueber-uns.html">Über uns</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
@@ -128,7 +135,66 @@
     </div>
   </div>
 
-  <div class="section">
+  <!-- Schöner Icon-Abschnitt -->
+  <h2 style="text-align:center; margin-top:36px;">Das macht Holzwerk aus</h2>
+  <div class="icon-row">
+    <div class="icon-grid">
+
+      <!-- Handwerk -->
+      <div class="icon-card">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 7l-3-3 2-2 4 4-3 3"/>
+            <path d="M2 22l7-7"/>
+            <path d="M6 18l3 3"/>
+            <path d="M3 19l2 2"/>
+          </svg>
+        </div>
+        <h3>Handwerk statt Masse</h3>
+        <p>Kleine Schreinerei in Indonesien – jedes Stück entsteht in sorgfältiger Handarbeit.</p>
+      </div>
+
+      <!-- Zertifizierte Herkunft -->
+      <div class="icon-card">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="3" width="14" height="18" rx="2" ry="2"/>
+            <path d="M9 8h6"/><path d="M9 12h6"/>
+            <path d="M12 16c2.5-3.5 5-2 5-5a3 3 0 0 0-5-2 3 3 0 0 0-5 2c0 3 2.5 1.5 5 5z"/>
+          </svg>
+        </div>
+        <h3>Zertifizierte Herkunft</h3>
+        <p>Suar-Holz aus verantwortungsvoll bewirtschafteten Quellen in Indonesien – dokumentiert & nachvollziehbar.</p>
+      </div>
+
+      <!-- Ein Baum pro Tisch -->
+      <div class="icon-card">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 13c-3 0-5-2-5-4a4 4 0 0 1 7-2 3 3 0 0 1 4 3c0 2-2 3-4 3h-2z"/>
+            <path d="M12 13v7"/><path d="M8 20h8"/>
+          </svg>
+        </div>
+        <h3>Ein Baum pro Tisch</h3>
+        <p>Für jeden Tisch veranlassen wir eine Pflanzung – inklusive persönlichem Pflanz-Zertifikat.</p>
+      </div>
+
+      <!-- Import & Qualitätsprüfung -->
+      <div class="icon-card">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7l7-4z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+        </div>
+        <h3>Import & Prüfung</h3>
+        <p>Fertigung in Indonesien, Import nach Deutschland und Qualitätscheck vor Auslieferung.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section" style="margin-top:22px;">
     <h2>Wofür wir stehen</h2>
     <ul class="bullets">
       <li><strong>Handwerk statt Masse:</strong> kleine Schreinerei, jedes Stück ein Unikat.</li>
@@ -141,6 +207,7 @@
 </section>
 
 <style>
+  /* Footer bleibt, wie von dir vorgegeben */
   :root { --holzwerk-gruen: #275317; }
   footer {
     background: var(--holzwerk-gruen);
@@ -148,16 +215,8 @@
     padding: 40px 60px;
     margin-top: 60px;
   }
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  footer a {
-    color: #e6e6e6;
-    text-decoration: none;
-  }
+  .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  footer a { color: #e6e6e6; text-decoration: none; }
   footer a:hover { text-decoration: underline; }
 </style>
 
@@ -168,6 +227,27 @@
     <a href="agb.html">AGB</a>
   </p>
 </footer>
+
+<!-- (Optional) Touch-Support: Tap auf "Unternehmen" öffnet Menü -->
+<script>
+  (function(){
+    const dd = document.querySelector('nav .dropdown');
+    if(!dd) return;
+    const link = dd.querySelector('a');
+    const menu = dd.querySelector('.dropdown-menu');
+    link.addEventListener('click', function(e){
+      // Tippen toggelt nur das Menü (kein Seitenwechsel)
+      e.preventDefault();
+      const open = dd.classList.toggle('open');
+      if(open){ menu.style.display='block'; requestAnimationFrame(()=>{menu.style.opacity=1; menu.style.transform='translateY(0)';}); }
+      else { menu.style.display='none'; }
+      link.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function(e){
+      if(!dd.contains(e.target)){ dd.classList.remove('open'); menu.style.display='none'; link.setAttribute('aria-expanded','false'); }
+    });
+  })();
+</script>
 
 </body>
 </html>
