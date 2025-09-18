@@ -4,8 +4,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Impressum – Holzwerk</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Navigation: Dropdown auf Hover/Focus -->
+  <style>
+    nav .dropdown { position: relative; }
+    nav .dropdown > a { display: inline-block; }
+    nav .dropdown > .dropdown-menu{
+      display:none; position:absolute; left:0; top:100%;
+      min-width:200px; background:#fff; border:1px solid #e6e6e6; border-radius:6px; padding:8px 0; z-index:999;
+      box-shadow:0 8px 20px rgba(0,0,0,.08); transform:translateY(6px); opacity:0; transition:opacity .15s, transform .15s;
+    }
+    nav .dropdown-menu li{ list-style:none; }
+    nav .dropdown-menu a{ display:block; padding:10px 14px; color:#333; text-decoration:none; white-space:nowrap; }
+    nav .dropdown-menu a:hover{ background:#f5f5f5; }
+    nav .dropdown:hover > .dropdown-menu,
+    nav .dropdown:focus-within > .dropdown-menu{ display:block; transform:translateY(0); opacity:1; }
+  </style>
+
+  <!-- Impressum Layout (nur für diese Seite) -->
+  <style>
+    :root { --holzwerk-gruen:#275317; --border:#eaeaea; --muted:#555; }
+
+    main { max-width: 1100px; margin: 36px auto; padding: 0 20px; }
+    #impressum { background:#fff; border:1px solid var(--border); border-radius:14px; padding:22px; }
+
+    #impressum h1, #impressum h2 { margin: 0 0 10px; }
+    #impressum h1 { font-size: clamp(26px,4.2vw,34px); }
+    #impressum p.lead { margin: -4px 0 16px; color: var(--muted); }
+
+    /* Kartenraster */
+    .imp-grid{
+      display:grid; grid-template-columns:1fr; gap:14px; margin-top:6px;
+    }
+    @media(min-width:820px){ .imp-grid{ grid-template-columns: 1.1fr 1fr; } }
+
+    .imp-card{
+      border:1px solid var(--border); border-radius:12px; padding:16px;
+      background:#fff;
+    }
+    .imp-title{
+      display:flex; align-items:center; gap:10px; margin:0 0 8px;
+      font-size:1.05rem; font-weight:600;
+    }
+    .imp-icon{ width:22px; height:22px; }
+    .imp-icon svg{ width:100%; height:100%; stroke: var(--holzwerk-gruen); }
+
+    /* Definitionen */
+    dl{ display:grid; grid-template-columns: 140px 1fr; gap:6px 14px; margin:0; }
+    dt{ color:#222; font-weight:600; }
+    dd{ margin:0; color:#333; }
+    .note{ color: var(--muted); font-size:.95rem; margin-top:10px; }
+
+    /* Footer bleibt wie gehabt */
+  </style>
 </head>
 <body>
+
 <header>
   <div class="logo">
     <img src="images/logo.png" alt="Holzwerk Logo" />
@@ -15,8 +69,8 @@
       <li><a href="index.html">Start</a></li>
       <li><a href="tische.html">Tische</a></li>
       <li class="dropdown">
-        <a href="#">Unternehmen</a>
-        <ul class="dropdown-menu">
+        <a href="#" aria-haspopup="true" aria-expanded="false">Unternehmen</a>
+        <ul class="dropdown-menu" aria-label="Untermenü Unternehmen">
           <li><a href="ueber-uns.html">Über uns</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
@@ -28,53 +82,101 @@
   </nav>
 </header>
 
-  <main>
-    <section id="impressum">
-      <h2>Impressum</h2>
-      <p>Holzwerk GmbH<br>
-      Musterstraße 123<br>
-      12345 Musterstadt</p>
-      <p>Geschäftsführer: Max Mustermann</p>
-      <p>USt-ID: DE123456789</p>
-    </section>
-  </main>
+<main>
+  <section id="impressum">
+    <h1>Impressum</h1>
+    <p class="lead">Angaben gemäß § 5 TMG.</p>
 
- <style>
-    :root {
-      --holzwerk-gruen: #275317;
-    }
+    <div class="imp-grid">
+      <!-- Firma & Anschrift -->
+      <div class="imp-card">
+        <div class="imp-title">
+          <span class="imp-icon" aria-hidden="true">
+            <!-- Building -->
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h3M7 11h3M7 15h3M14 7h3M14 11h3M14 15h3"/><path d="M3 21h18"/>
+            </svg>
+          </span>
+          Holzwerk GmbH
+        </div>
+        <dl>
+          <dt>Adresse</dt><dd>Musterstraße 123, 12345 Musterstadt</dd>
+          <dt>Vertreten durch</dt><dd>Geschäftsführer: Max Mustermann</dd>
+          <dt>Kontakt</dt><dd>Telefon: [Telefon] · E-Mail: [E-Mail]</dd>
+          <dt>USt-ID</dt><dd>DE123456789</dd>
+        </dl>
+      </div>
 
-   footer {
-      background: var(--holzwerk-gruen);
-      color: #fff;
-      padding: 40px 60px;
-      margin-top: 60px;
-    }
+      <!-- Register / Aufsicht / Streitbeilegung -->
+      <div class="imp-card">
+        <div class="imp-title">
+          <span class="imp-icon" aria-hidden="true">
+            <!-- Shield -->
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7l7-4z"/><path d="M9 12l2 2 4-4"/>
+            </svg>
+          </span>
+          Rechtliche Angaben
+        </div>
+        <dl>
+          <dt>Register</dt><dd>[Handelsregister, Registernummer], Registergericht: [Ort]</dd>
+          <dt>Aufsicht</dt><dd>[Zuständige Aufsichtsbehörde, falls erforderlich]</dd>
+          <dt>Berufsrecht</dt><dd>[Berufsrechtliche Regelungen, falls einschlägig]</dd>
+          <dt>Streitbeilegung</dt><dd>Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</dd>
+        </dl>
+        <p class="note">Platzhalter bitte mit deinen echten Register-/Behördenangaben ersetzen.</p>
+      </div>
 
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
+      <!-- Verantwortlich für den Inhalt -->
+      <div class="imp-card">
+        <div class="imp-title">
+          <span class="imp-icon" aria-hidden="true">
+            <!-- User -->
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="7" r="4"/><path d="M5.5 21a8.5 8.5 0 0 1 13 0"/>
+            </svg>
+          </span>
+          Verantwortlich i. S. d. § 18 Abs. 2 MStV
+        </div>
+        <dl>
+          <dt>Name</dt><dd>Max Mustermann</dd>
+          <dt>Adresse</dt><dd>Musterstraße 123, 12345 Musterstadt</dd>
+        </dl>
+      </div>
 
-    footer a {
-      color: #e6e6e6;
-      text-decoration: none;
-    }
+      <!-- Urheberrecht & Bildnachweise -->
+      <div class="imp-card">
+        <div class="imp-title">
+          <span class="imp-icon" aria-hidden="true">
+            <!-- Copyright -->
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/><path d="M15 10a4 4 0 1 0 0 4"/>
+            </svg>
+          </span>
+          Urheberrecht
+        </div>
+        <p>Alle Inhalte und Bilder dieser Website sind urheberrechtlich geschützt. Jede Verwendung außerhalb der gesetzlich zulässigen Fälle bedarf der vorherigen Zustimmung von Holzwerk GmbH.</p>
+        <p class="note">Bildnachweise (falls erforderlich): [Fotograf/Quelle].</p>
+      </div>
+    </div>
+  </section>
+</main>
 
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+<style>
+  :root { --holzwerk-gruen:#275317; }
+  footer { background: var(--holzwerk-gruen); color:#fff; padding:40px 60px; margin-top:60px; }
+  .footer-content { display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+  footer a{ color:#e6e6e6; text-decoration:none; }
+  footer a:hover{ text-decoration:underline; }
+</style>
 
-  <footer class="footer">
+<footer class="footer">
   <p>
     © 2025 Holzwerk – Monolith-Tische aus Suarholz |
     <a href="impressum.html">Impressum</a> |
     <a href="agb.html">AGB</a>
   </p>
 </footer>
-  
+
 </body>
 </html>
