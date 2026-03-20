@@ -6,70 +6,67 @@
   <title>Über uns – Holzwerk</title>
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Menü: Hover-/Focus-Dropdown (dezent, nur Navigation) -->
   <style>
     nav .dropdown { position: relative; }
     nav .dropdown > a { display: inline-block; }
     nav .dropdown > .dropdown-menu {
       display: none;
-      position: absolute; left: 0; top: 100%;
-      min-width: 200px; background: #fff;
-      border: 1px solid #e6e6e6; border-radius: 6px;
-      padding: 8px 0; z-index: 999;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      min-width: 200px;
+      background: #fff;
+      border: 1px solid #e6e6e6;
+      border-radius: 6px;
+      padding: 8px 0;
+      z-index: 999;
       box-shadow: 0 8px 20px rgba(0,0,0,.08);
-      transform: translateY(6px); opacity: 0;
+      transform: translateY(6px);
+      opacity: 0;
       transition: opacity .15s ease, transform .15s ease;
     }
+
     nav .dropdown-menu li { list-style: none; }
+
     nav .dropdown-menu a {
-      display: block; padding: 10px 14px;
-      text-decoration: none; color: #333; white-space: nowrap;
+      display: block;
+      padding: 10px 14px;
+      text-decoration: none;
+      color: #333;
+      white-space: nowrap;
     }
-    nav .dropdown-menu a:hover { background: #f5f5f5; }
+
+    nav .dropdown-menu a:hover {
+      background: #f5f5f5;
+    }
+
     nav .dropdown:hover > .dropdown-menu,
     nav .dropdown:focus-within > .dropdown-menu {
-      display: block; transform: translateY(0); opacity: 1;
+      display: block;
+      transform: translateY(0);
+      opacity: 1;
     }
-  </style>
 
-  <!-- About-Layout + Icon-Row: nur innerhalb .about -->
-  <style>
-    .about { max-width: 1100px; margin: 40px auto; padding: 0 20px; line-height: 1.6; }
-    .about h1 { margin-bottom: 10px; }
-    .about .lead { font-size: 1.05rem; margin-bottom: 24px; color: #333; }
-
-    .about .grid { display: grid; grid-template-columns: 1fr; gap: 22px; }
-    @media (min-width: 820px){ .about .grid { grid-template-columns: 1fr 1fr; } }
-
-    .about .section { margin: 0; }
-    .about .card {
-      background: #fff; border: 1px solid #e6e6e6; border-radius: 8px; padding: 18px;
-    }
-    .about .section h2 { margin: 0 0 8px; font-size: 1.35rem; }
-    .about strong { font-weight: 600; }
-
-    .about ul.bullets { padding-left: 18px; margin: 10px 0 0; }
-    .about ul.bullets li { margin: 6px 0; }
-    .about .note { margin-top: 16px; color: #555; font-size: .95rem; }
-
-    /* Icon-Row */
     :root { --holzwerk-gruen: #275317; }
-    .about .icon-row { max-width: 1100px; margin: 36px auto 8px; padding: 0 20px; }
-    .about .icon-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
-    @media (min-width: 700px){ .about .icon-grid { grid-template-columns: repeat(3,1fr); } }
-    @media (min-width: 1024px){ .about .icon-grid { grid-template-columns: repeat(4,1fr); } }
-    .about .icon-card {
-      text-align: center; background: #fff; border: 1px solid #eaeaea;
-      border-radius: 12px; padding: 20px 18px; transition: transform .15s, box-shadow .15s;
+
+    footer {
+      background: var(--holzwerk-gruen);
+      color: #fff;
+      padding: 40px 60px;
+      margin-top: 60px;
+      text-align: center;
     }
-    .about .icon-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.06); }
-    .about .icon-wrap { width: 52px; height: 52px; margin: 0 auto 10px; }
-    .about .icon-wrap svg { width: 100%; height: 100%; display: block; stroke: var(--holzwerk-gruen); }
-    .about .icon-card h3 { margin: 6px 0 6px; font-size: 1.05rem; }
-    .about .icon-card p { margin: 0; color: #444; line-height: 1.5; font-size: .98rem; }
+
+    footer a {
+      color: #e6e6e6;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
-
 <body>
 
 <header>
@@ -96,7 +93,6 @@
 
 <section class="about-page">
 
-  <!-- HERO -->
   <section class="about-hero">
     <div class="about-hero-overlay">
       <div class="about-shell about-hero-content">
@@ -111,7 +107,6 @@
     </div>
   </section>
 
-  <!-- INTRO / ABLAUF -->
   <section class="about-section about-section-light">
     <div class="about-shell">
       <div class="about-copy-head">
@@ -190,7 +185,6 @@
     </div>
   </section>
 
-  <!-- BILD + TEXT -->
   <section class="about-feature">
     <div class="about-feature-media">
       <img src="images/unternehmen-1.jpg" alt="Massive Suar-Holzplatte von Holzwerk">
@@ -207,7 +201,6 @@
     </div>
   </section>
 
-  <!-- PRINZIPIEN -->
   <section class="about-section about-principles-wrap">
     <div class="about-shell">
       <div class="about-divider-title">
@@ -263,7 +256,6 @@
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="about-section about-cta-wrap">
     <div class="about-shell">
       <div class="about-divider-title">
@@ -278,4 +270,50 @@
     </div>
   </section>
 
+</section>
+
+<footer class="footer">
+  <p>
+    © 2025 Holzwerk – Monolith-Tische aus Suarholz |
+    <a href="impressum.html">Impressum</a> |
+    <a href="agb.html">AGB</a>
+  </p>
+</footer>
+
+<script>
+  (function(){
+    const dd = document.querySelector('nav .dropdown');
+    if(!dd) return;
+    const link = dd.querySelector('a');
+    const menu = dd.querySelector('.dropdown-menu');
+
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      const open = dd.classList.toggle('open');
+
+      if(open){
+        menu.style.display = 'block';
+        requestAnimationFrame(() => {
+          menu.style.opacity = 1;
+          menu.style.transform = 'translateY(0)';
+        });
+      } else {
+        menu.style.display = 'none';
+      }
+
+      link.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', function(e){
+      if(!dd.contains(e.target)){
+        dd.classList.remove('open');
+        menu.style.display = 'none';
+        link.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
 </section>
