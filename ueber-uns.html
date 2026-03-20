@@ -68,6 +68,74 @@
     .about .icon-card p { margin: 0; color: #444; line-height: 1.5; font-size: .98rem; }
   </style>
 </head>
+
+<script>
+  (function () {
+    const slider = document.querySelector('.company-slider');
+    if (!slider) return;
+
+    const slides = slider.querySelectorAll('.slide');
+    const dots = slider.querySelectorAll('.dot');
+    const prevBtn = slider.querySelector('.prev');
+    const nextBtn = slider.querySelector('.next');
+
+    let current = 0;
+    let interval;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+
+      current = index;
+    }
+
+    function nextSlide() {
+      showSlide((current + 1) % slides.length);
+    }
+
+    function prevSlide() {
+      showSlide((current - 1 + slides.length) % slides.length);
+    }
+
+    function startAutoplay() {
+      stopAutoplay();
+      interval = setInterval(nextSlide, 5000);
+    }
+
+    function stopAutoplay() {
+      if (interval) clearInterval(interval);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      startAutoplay();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      startAutoplay();
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        showSlide(index);
+        startAutoplay();
+      });
+    });
+
+    slider.addEventListener('mouseenter', stopAutoplay);
+    slider.addEventListener('mouseleave', startAutoplay);
+
+    showSlide(0);
+    startAutoplay();
+  })();
+</script>
+  
 <body>
 
 <header>
